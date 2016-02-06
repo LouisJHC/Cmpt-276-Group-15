@@ -10,4 +10,17 @@ class StaticPagesController < ApplicationController
   
   def contact
   end
+  
+  def forums
+  end
+  
+  def routines
+  end
+  
+  def calcalc
+  end
+  
+  def fooddiary 
+  end
+  
 end
