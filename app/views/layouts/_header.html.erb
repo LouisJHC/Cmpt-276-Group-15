@@ -16,7 +16,6 @@
             </ul>
         </li>
         <li><%= link_to "Forums",                 forums_path %></li>
-        <li><%= link_to "Sign up",                signup_path %></li>
         
         <!-- Links a user sees if they're logged in -->
         <% if logged_in? %>
@@ -35,6 +34,7 @@
             </ul>
           </li>
         <% else %>
+          <li><%= link_to "Sign up",                signup_path %></li>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
