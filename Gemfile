@@ -13,6 +13,9 @@ gem 'jquery-rails', '4.0.3'
 gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
+gem 'rb-inotify', '~> 0.9.7'
+gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
