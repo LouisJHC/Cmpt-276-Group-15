@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-    include ApplicationHelper
-    helper_method :current_user
+    include SessionsHelper
+        helper_method :current_user
 
     before_action :find_post, only: [:show, :edit, :update, :destroy]
     def index
