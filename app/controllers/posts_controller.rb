@@ -3,6 +3,7 @@ class PostsController < ApplicationController
         helper_method :current_user
 
     before_action :find_post, only: [:show, :edit, :update, :destroy]
+ 
     def index
         @posts = Post.all.order("created_at DESC")
     end
