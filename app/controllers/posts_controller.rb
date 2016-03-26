@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     include SessionsHelper
         helper_method :current_user
+        
 
     before_action :find_post, only: [:show, :edit, :update, :destroy]
  
@@ -30,18 +31,24 @@ class PostsController < ApplicationController
     def edit
     end
     
-    def update
+   def update
+    if current_user == @post.user
         if @post.update(post_params)
             redirect_to @post
         else
             render 'edit'
         end
+    else
+        redirect_to posts_path
     end
+end
     
     
     def destroy
-        @post.destroy
-        redirect_to root_path
+        if current_user == @post.user
+            @post.destroy
+        end
+        redirect_to posts_path
     end
     
     private
