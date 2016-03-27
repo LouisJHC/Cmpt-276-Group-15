@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+	
+	include SessionsHelper
+        helper_method :current_user
+    def show
+    end
+        
 	def create
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.create(params[:comment].permit(:comment))
@@ -18,20 +24,28 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.find(params[:id])
-
-		if @comment.update(params[:comment].permit(:comment))
-			redirect_to post_path(@post)
-		else
-			render 'edit'
-		end
+	  if current_user == @comments.user
+			@post = Post.find(params[:post_id])
+			@comment = @post.comments.find(params[:id])
+	
+			if @comment.update(params[:comment].permit(:comment))
+				redirect_to post_path(@post)
+			else
+				render 'edit'
+			end
+	  else
+	  	redirect_to root_path
+	  end
 	end
 
 	def destroy
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.find(params[:id])
-		@comment.destroy
-		redirect_to post_path(@post)
+	  if current_user == @comment.user.name
+			@post = Post.find(params[:post_id])
+			@comment = @post.comments.find(params[:id])
+			@comment.destroy
+			redirect_to post_path(@post)
+	  else
+		  	redirect_to root_path
+	  end
 	end
 end
