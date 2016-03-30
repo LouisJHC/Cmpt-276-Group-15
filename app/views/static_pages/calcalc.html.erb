@@ -1,5 +1,163 @@
 <% provide(:title, 'Caloire Calculator') %>
-<h1>Calorie Calculator</h1>
-<p>
-  OK I'm working on that nowwww. 
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial;
+    font-size: 120%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#f5f5f5}
+
+input[type=text] {
+    width: 50%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+select {
+    width: 50%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.grey {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.grey:hover {background-color: #e7e7e7;}
+
+#demo {
+    margin-top: 5px;
+}
+
+</style>
+<h1>Calorie Calculators</h1>
+<p style="font-size:110%;margin-left:9px;">It can help you to calculate an estimate of how many calories you burn each day</p>
+<table>
+  <tr>
+    <th width= "200">Age</th>
+    <td width= "400">
+      <input type = "text", name = age>
+    </td>		
+  </tr>
+  <tr>
+    <td><b>Gender</b></td>
+    <td width= "400">
+    
+  <form>
+    <select id="gender" name="gender">
+      <option value="F">Female</option>
+      <option value="M">Male</option>
+    </select>
+  </form>
+
+    </td>	
+  </tr>
+  <tr>
+    <td><b>Height</b></td>
+    <td width= "400">
+      <input type = "text", name = height> centimeters
+    </td>		
+  </tr>
+  <tr>
+    <td><b>Weight</b></td>
+    <td width= "400">
+      <input type = "text", name = weight> Kilos
+    </td>		
+  </tr>
+  <tr>
+    <td><b>Acticity Level</b></td>
+    <td>
+      <form>
+        <select id="Acticity" name="Acticity">
+          <option value=1>sedentary</option>
+          <option value=2>lightly active</option>
+          <option value=3>moderately active</option>
+          <option value=4>very active</option>
+          <option value=5>extra active</option>
+        </select>
+      </form>
+    </td>
+  </tr>
+</table>
+<button class="button grey" onclick = "calculateCalories()">Calculate now</button>
+
+<p id="demo"></p>
+
+<p style="font-size:90%;margin-left:5px;">
+  About Acticity level: <br>
+  sedentary: little to no exercise.<br>
+  lightly active: exercising about 1-to-3 days each week.<br>
+  moderately active: exercising moderately and/or play sports 3-to-5 days.<br>
+  very active: people who engage in strenuous sports or hard exercise 6-to-7 days a week.<br>
+  extra active: people who engage in very physically challenging jobs or exercise, such as 2-a-day workouts.<br>
 </p>
+
+
+<script>
+  function calculateCalories(){
+    var age = document.getElementsByName("age")[0].value;
+    var gender = document.getElementsByName("gender")[0].value;
+    var height = document.getElementsByName("height")[0].value;
+    var weight = document.getElementsByName("weight")[0].value;
+    var activity = document.getElementsByName("Activity")[0].value;
+    var heightInches = age*0.393701;
+    var weightPounds = weight*2.20462;
+    var c;
+    var BMR;
+    if(gender == "F"){
+      BMR = 4.7*heightInches + 4.35*weightPounds - 4.7*age + 655;
+    }
+    else if(gender == "M"){
+      BMR = 12.7*heightInches + 6.23*weightPounds - 6.8*age + 66;
+    }
+    
+    window.alert(BMR)
+    
+    if(activity == 1){
+      c = BMR*1.2;
+    }
+    if(activity == 2{
+      c = BMR*1.375;
+    }
+    if(activity == 3){
+      c = BMR*1.55;
+    }
+    if(activity == 4){
+      c = BMR*1.725;
+    }
+    if(activity == 5){
+      c = BMR*1.9;
+    }
+    
+    document.getElementById("demo").innerHTML = "Your energy expenditure is " + c.toFixed(3) + "calories";
+  }
+  
+</script>
