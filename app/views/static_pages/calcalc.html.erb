@@ -43,6 +43,7 @@ select {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .grey {
@@ -55,6 +56,9 @@ select {
 
 #demo {
     margin-top: 5px;
+    margin-left : 5px;
+    font-size: 130%;
+    font-weight: bold;
 }
 
 </style>
@@ -96,12 +100,12 @@ select {
     <td><b>Acticity Level</b></td>
     <td>
       <form>
-        <select id="Acticity" name="Acticity">
-          <option value=1>sedentary</option>
-          <option value=2>lightly active</option>
-          <option value=3>moderately active</option>
-          <option value=4>very active</option>
-          <option value=5>extra active</option>
+        <select id="Acticity">
+          <option value="A">sedentary</option>
+          <option value="B">lightly active</option>
+          <option value="C">moderately active</option>
+          <option value="D">very active</option>
+          <option value="E">extra active</option>
         </select>
       </form>
     </td>
@@ -123,41 +127,51 @@ select {
 
 <script>
   function calculateCalories(){
+    //window.alert(0);
     var age = document.getElementsByName("age")[0].value;
-    var gender = document.getElementsByName("gender")[0].value;
+    //window.alert(age);
+    var gender = document.getElementById("gender").value;
+    //window.alert(gender);
     var height = document.getElementsByName("height")[0].value;
+    //window.alert(height);
     var weight = document.getElementsByName("weight")[0].value;
-    var activity = document.getElementsByName("Activity")[0].value;
+    //window.alert(weight);
+    var activity = document.getElementById("Acticity").value;
+    //window.alert(activity);
     var heightInches = age*0.393701;
+    //window.alert(heightInches);
     var weightPounds = weight*2.20462;
+    //window.alert(weightPounds);
     var c;
     var BMR;
     if(gender == "F"){
       BMR = 4.7*heightInches + 4.35*weightPounds - 4.7*age + 655;
     }
+
     else if(gender == "M"){
       BMR = 12.7*heightInches + 6.23*weightPounds - 6.8*age + 66;
     }
+    //window.alert(BMR);
     
-    window.alert(BMR)
     
-    if(activity == 1){
+    if(activity == "A"){
       c = BMR*1.2;
     }
-    if(activity == 2{
+    if(activity == "B"){
       c = BMR*1.375;
     }
-    if(activity == 3){
+    if(activity == "C"){
       c = BMR*1.55;
     }
-    if(activity == 4){
+    if(activity == "D"){
       c = BMR*1.725;
     }
-    if(activity == 5){
+    if(activity == "E"){
       c = BMR*1.9;
     }
+    //window.alert(c);
+    document.getElementById("demo").innerHTML = "Your energy expenditure is " + c.toFixed(3) + " calories";
     
-    document.getElementById("demo").innerHTML = "Your energy expenditure is " + c.toFixed(3) + "calories";
   }
   
 </script>
