@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activity: MyString
+  duration: 9.99
+  effect: MyString
+  weight: 9.99
+  totolduration: 9.99
+  progress: MyText
+
+two:
+  activity: MyString
+  duration: 9.99
+  effect: MyString
+  weight: 9.99
+  totolduration: 9.99
+  progress: MyText

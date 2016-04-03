@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @tracker.activity %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @tracker.duration %>
+</p>
+
+<p>
+  <strong>Effect:</strong>
+  <%= @tracker.effect %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @tracker.weight %>
+</p>
+
+<p>
+  <strong>Totolduration:</strong>
+  <%= @tracker.totolduration %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @tracker.progress %>
+</p>
+
+<%= link_to 'Edit', edit_tracker_path(@tracker) %> |
+<%= link_to 'Back', trackers_path %>
