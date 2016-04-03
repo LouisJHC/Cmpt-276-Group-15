@@ -21,18 +21,12 @@
         figure, figcaption, footer, header, hgroup,
         menu, nav, output, ruby, section, summary,
         time, mark, audio, video {
-            margin: 0;
-            padding: 0;
-            border: 0;
             font-size: 100%;
             font: inherit;
             vertical-align: baseline;
         }
 
-        article, aside, details, figcaption, figure,
-        footer, header, hgroup, menu, nav, section {
-            display: block;
-        }
+
         body {
             line-height: 1;
         }
@@ -51,6 +45,11 @@
         table {
             border-collapse: collapse;
             border-spacing: 0;
+        }
+        
+        th, td {
+        padding: 15px;
+        text-align: center;
         }
 
         body {
@@ -144,39 +143,6 @@
 
         .impress-enabled .step.active { opacity: 1 }
 
-        .slide {
-            display: block;
-
-            width: 900px;
-            height: 700px;
-            padding: 40px 60px;
-
-            background-color: white;
-            border: 1px solid rgba(0, 0, 0, .3);
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-
-            color: rgb(102, 102, 102);
-            text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
-
-            font-family: 'Open Sans', Arial, sans-serif;
-            font-size: 30px;
-            line-height: 36px;
-            letter-spacing: -1px;
-        }
-
-        .slide q {
-            display: block;
-            font-size: 50px;
-            line-height: 72px;
-
-            margin-top: 0px;
-        }
-
-        .slide q strong {
-            white-space: nowrap;
-        }
-
         #summary {
             padding: 0;
         }
@@ -201,6 +167,24 @@
             -ms-transform:     translateZ(60px);
             -o-transform:      translateZ(60px);
             transform:         translateZ(60px);
+        }
+
+        #big {
+            width: 600px;
+            text-align: center;
+            font-size: 60px;
+            line-height: 1;
+        }
+
+        #big b {
+            display: block;
+            font-size: 250px;
+            line-height: 250px;
+        }
+
+        #big .thoughts {
+            font-size: 90px;
+            line-height: 150px;
         }
 
         #overview { display: none }
@@ -278,9 +262,9 @@
 </div>
 
 <div id="impress">
-    <div id="bored" class="step slide" data-x="-1000" data-y="-1200">
-        <q>Daily Tracker</q>
-        <p id="notice"><%= notice %></p>
+
+    <div id="summary" class="step" data-x="0" data-y="-1000" data-scale="4">
+        <p>Daily Tracker</p>
 
         <table>
           <thead>
@@ -305,13 +289,10 @@
             <% end %>
           </tbody>
         </table>
-        
-        <br>
-        
-        <%= link_to 'New Tracker', new_tracker_path %>
     </div>
 
-    <div id="summary" class="step" data-x="0" data-y="0" data-scale="4">
+    
+    <div id="s-content" class="step" data-x="4000" data-y="1000" data-rotate="0" data-scale="5">
         <h1>END-OF-WEEK&nbspSUMMARY</h1>
         <span class="note">
             <sup>*</sup>Weight:&nbsp;&nbsp;Record your end-of-week weight.</br>
@@ -320,13 +301,12 @@
         </span>
     </div>
 
-    
-    <div id="s-content" class="step" data-x="3000" data-y="1500" data-rotate="0" data-scale="5">
+    <div id="big" class="step" data-x="6000" data-y="3500" data-rotate="0" data-scale="6">
         <table>
           <thead>
             <tr>
               <th>Weight</th>
-              <th>Totolduration</th>
+              <th>Totol duration</th>
               <th>Progress</th>
               <th colspan="3"></th>
             </tr>
@@ -338,9 +318,6 @@
                 <td><%= tracker.weight %></td>
                 <td><%= tracker.totolduration %></td>
                 <td><%= tracker.progress %></td>
-                <td><%= link_to 'Show', tracker %></td>
-                <td><%= link_to 'Edit', edit_tracker_path(tracker) %></td>
-                <td><%= link_to 'Destroy', tracker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
@@ -918,4 +895,3 @@ if ("ontouchstart" in document.documentElement) {
 
 </body>
 </html>
-
