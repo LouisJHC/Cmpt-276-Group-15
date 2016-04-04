@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'forums'  => 'static_pages#forums'
   get 'routines'=> 'static_pages#routines'
   get 'calcalc' => 'static_pages#calcalc'
-  get 'fooddiary' => 'static_pages#fooddiary'
+  get 'locations' => 'static_pages#locations'
   get 'nutrition informations' => 'static_pages#nutrition informations'
   
   get 'signup'  => 'users#new'

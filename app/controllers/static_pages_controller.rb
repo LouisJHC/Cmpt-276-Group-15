@@ -20,7 +20,7 @@ class StaticPagesController < ApplicationController
   def calcalc
   end
   
-  def fooddiary 
+  def locations
   end
   
 end
