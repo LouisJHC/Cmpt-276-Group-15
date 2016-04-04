@@ -144,6 +144,15 @@ select {
     //window.alert(weightPounds);
     var c;
     var BMR;
+    if (age == ""){
+      window.alert("Error, you need to enter your age");
+    }
+    if (height ==""){
+      window.alert("Error, you need to enter your height");
+    }
+    if (weight ==""){
+      window.alert("Error, you need to enter your weight");
+    }
     if(gender == "F"){
       BMR = 4.7*heightInches + 4.35*weightPounds - 4.7*age + 655;
     }
