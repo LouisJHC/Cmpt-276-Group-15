@@ -1,4 +1,7 @@
 class TrackersController < ApplicationController
+  include SessionsHelper
+        helper_method :current_user
+        
   before_action :set_tracker, only: [:show, :edit, :update, :destroy]
 
   # GET /trackers

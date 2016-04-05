@@ -5,7 +5,7 @@ class TrackerTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @trackers = Tracker.new(activity: "running", duration: "1.5", effect: "tired", weight: "60", totolduration: "1.5", progress: "good")
+    @trackers = Tracker.new(activity: "running", duration: 1.5, effect: "tired", weight: 60, totolduration: 1.5, progress: "good")
   end
   
   test "should be valid" do
@@ -30,7 +30,7 @@ class TrackerTest < ActiveSupport::TestCase
     @trackers.weight = " "
     assert_not @trackers.valid?
   end
-  test "totolduration should be present" do
+  test "totalduration should be present" do
     @trackers.totolduration = " "
     assert_not @trackers.valid?
   end
