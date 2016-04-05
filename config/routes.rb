@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'tracker' => 'static_pages#tracker'
   get 'calcalc' => 'static_pages#calcalc'
   get 'locations' => 'static_pages#locations'
-  get 'nutrition informations' => 'static_pages#nutrition informations'
+  get 'nutritions' => 'static_pages#nutritions'
   
   get 'signup'  => 'users#new'
   

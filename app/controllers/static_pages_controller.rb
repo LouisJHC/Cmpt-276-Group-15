@@ -14,6 +14,9 @@ class StaticPagesController < ApplicationController
   def forums
   end
   
+  def nutritions
+  end
+  
   def routines
   end
   
